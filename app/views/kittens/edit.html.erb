@@ -1,2 +1,4 @@
 Edit kitten: <br>
 <%=render 'form'%>
+<%= link_to 'Destroy', @kitten, :confirm => 'Are you sure?',
+                                     :method => :delete %>

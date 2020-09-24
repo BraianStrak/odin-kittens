@@ -1,2 +1,4 @@
 <%= @kitten.name %>
 <!-- This probably causes a missing variable exception -->
+<%= link_to 'Destroy', @kitten, :confirm => 'Are you sure?',
+                                     :method => :delete %>

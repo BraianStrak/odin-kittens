@@ -4,7 +4,7 @@ class KittensController < ApplicationController
     end
 
     def create
-        @kitten = kittens.build(kitten_params)
+        @kitten = Kitten.new(kitten_params)
 
         if @kitten.save
             redirect_to root_path
@@ -14,7 +14,7 @@ class KittensController < ApplicationController
     end
 
     def show
-        
+        @kitten = Kitten.find(params[:id])
     end
 
     def new
@@ -26,16 +26,17 @@ class KittensController < ApplicationController
     end
 
     def update
-
+        @kitten.update(kitten_params)
     end
 
     def destroy 
-
+        @kitten = Kitten.find(params[:id])
+        @kitten.destroy
     end
 
     private
 
     def kitten_params
-        params.require(:post).permit(:name, :age, :cuteness, :softness)
+        params.require(:kitten).permit(:id, :name, :age, :cuteness, :softness)
     end
 end
